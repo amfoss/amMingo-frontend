@@ -1,4 +1,5 @@
 import 'package:amingo/main.dart';
+import 'package:amingo/screens/RoleSelection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
@@ -118,7 +119,7 @@ class CreateUsername extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(builder: (context) => Roleselection()),
                     );
                   },
                   child: Text(

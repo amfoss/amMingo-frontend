@@ -1,18 +1,13 @@
-// import 'package:amingo/screens/HostScreen.dart';
 import 'package:amingo/screens/enterusername.dart';
-import 'package:amingo/screens/loginscreen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../providers/theme_provider.dart';
 
 class Roleselection extends StatelessWidget {
   const Roleselection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     final colorScheme = Theme.of(context).colorScheme;
+    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -25,7 +20,8 @@ class Roleselection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(width: 7),
+            Image.asset('assets/images/amMingo.png', height: height * 0.07),
+            SizedBox(width: width * .01),
             Text(
               "Amingo",
               style: TextStyle(
@@ -42,7 +38,7 @@ class Roleselection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              const SizedBox(height: 110),
+              SizedBox(height: height * 0.1),
 
               /// Heading
               Center(
@@ -57,7 +53,7 @@ class Roleselection extends StatelessWidget {
                         fontSize: 36,
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: height * 0.005),
                     Text(
                       "Choose your role to get started.",
                       textAlign: TextAlign.center,
@@ -71,7 +67,7 @@ class Roleselection extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 50),
+              SizedBox(height: height * 0.06),
 
               /// PLAYER CARD
               GestureDetector(
@@ -84,8 +80,8 @@ class Roleselection extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  width: 440,
-                  height: 170,
+                  width: width * 0.9,
+                  height: height * 0.2,
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: colorScheme.outline,
@@ -94,7 +90,12 @@ class Roleselection extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      const SizedBox(width: 20),
+                      Icon(
+                        Icons.dashboard,
+                        color: colorScheme.primary,
+                        size: 40,
+                      ),
+                      SizedBox(width: width * 0.04),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +109,7 @@ class Roleselection extends StatelessWidget {
                                 color: colorScheme.onSurface,
                               ),
                             ),
-                            const SizedBox(height: 6),
+                            SizedBox(height: height * 0.01),
                             Text(
                               "Enter a code and start winning big in live games.",
                               style: TextStyle(
@@ -124,7 +125,7 @@ class Roleselection extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 30),
+              SizedBox(height: height * 0.05),
 
               /// HOST CARD
               GestureDetector(
@@ -137,8 +138,8 @@ class Roleselection extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  width: 440,
-                  height: 170,
+                  width: width * 0.9,
+                  height: height * 0.2,
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: colorScheme.outline,
@@ -147,7 +148,8 @@ class Roleselection extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      const SizedBox(width: 20),
+                      Icon(Icons.rocket, color: colorScheme.primary, size: 40),
+                      SizedBox(width: width*0.04),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,7 +163,7 @@ class Roleselection extends StatelessWidget {
                                 color: colorScheme.onSurface,
                               ),
                             ),
-                            const SizedBox(height: 6),
+                            SizedBox(height: height * 0.01),
                             Text(
                               "Create rooms, manage players, and lead the show.",
                               style: TextStyle(

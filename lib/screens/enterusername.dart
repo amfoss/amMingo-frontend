@@ -1,4 +1,3 @@
-import 'package:amingo/main.dart';
 import 'package:amingo/screens/RoleSelection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

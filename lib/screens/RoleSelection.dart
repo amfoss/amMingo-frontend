@@ -11,7 +11,6 @@ class Roleselection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final themeProvider = Provider.of<ThemeProvider>(context);
     final colorScheme = Theme.of(context).colorScheme;
     final height = MediaQuery.of(context).size.height;
@@ -26,10 +25,6 @@ class Roleselection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
-              'assets/images/amMingo.png',
-              height: height * 0.07,
-            ),
             const SizedBox(width: 7),
             Text(
               "Amingo",
@@ -95,17 +90,10 @@ class Roleselection extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: colorScheme.outline,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border(
-                    left: BorderSide(
-                      color: colorScheme.primary,
-                      width: 7.0,
-                    ),
-                  ),
+                    border: Border(),
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.dashboard,
-                          color: colorScheme.primary, size: 40),
                       const SizedBox(width: 20),
                       Expanded(
                         child: Column(
@@ -155,19 +143,10 @@ class Roleselection extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: colorScheme.outline,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border(
-                      left: BorderSide(
-                        color: colorScheme.primary,
-                        width: 7.0,
-                      ),
-                    ),
-
+                    border: Border(),
                   ),
                   child: Row(
                     children: [
-
-                      Icon(Icons.rocket,
-                          color: colorScheme.primary, size: 40),
                       const SizedBox(width: 20),
                       Expanded(
                         child: Column(

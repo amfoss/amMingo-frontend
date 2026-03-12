@@ -149,7 +149,7 @@ class Roleselection extends StatelessWidget {
                   child: Row(
                     children: [
                       Icon(Icons.rocket, color: colorScheme.primary, size: 40),
-                      SizedBox(width: width*0.04),
+                      SizedBox(width: width * 0.04),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

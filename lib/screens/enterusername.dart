@@ -119,7 +119,9 @@ class CreateUsername extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => JoinEventScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => JoinEventScreen(),
+                      ),
                     );
                   },
                   child: Text(

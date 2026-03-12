@@ -11,7 +11,6 @@ class JoinEventScreen extends StatefulWidget {
 
 class _JoinEventScreenState extends State<JoinEventScreen>
     with SingleTickerProviderStateMixin {
-
   MobileScannerController cameraController = MobileScannerController();
   bool isScanned = false;
   String qrResult = "";
@@ -58,9 +57,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                 Center(
                   child: Text(
                     "Scan the event QR code or enter the unique 6-digit code provided by the host.",
-                    style: TextStyle(
-                      color: colorScheme.onSurface,
-                    ),
+                    style: TextStyle(color: colorScheme.onSurface),
                   ),
                 ),
 
@@ -100,7 +97,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         animation: animation,
                         builder: (context, child) {
                           return Positioned(
-                            top: animation.value * ((height * 0.35)-6),
+                            top: animation.value * ((height * 0.35) - 6),
                             left: 2,
                             right: 3,
                             child: Container(
@@ -112,8 +109,8 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                                     color: Colors.yellow,
                                     blurRadius: 20,
                                     spreadRadius: 2,
-                                  )
-                                ]
+                                  ),
+                                ],
                               ),
                             ),
                           );
@@ -123,12 +120,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         top: 0,
                         left: 0,
                         child: Container(
-                          width: width*0.2,
-                          height: height*0.1,
+                          width: width * 0.2,
+                          height: height * 0.1,
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(color: Colors.yellow, width: width*0.01),
-                              left: BorderSide(color: Colors.yellow, width: width*0.01),
+                              top: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
+                              left: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
                             ),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(12),
@@ -140,12 +143,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         top: 0,
                         right: 0,
                         child: Container(
-                          width: width*0.2,
-                          height: height*0.1,
+                          width: width * 0.2,
+                          height: height * 0.1,
                           decoration: BoxDecoration(
                             border: Border(
-                              top: BorderSide(color: Colors.yellow, width: width*0.01),
-                              right: BorderSide(color: Colors.yellow, width: width*0.01),
+                              top: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
+                              right: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
                             ),
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(12),
@@ -157,12 +166,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         bottom: 0,
                         right: 0,
                         child: Container(
-                          width: width*0.2,
-                          height: height*0.1,
+                          width: width * 0.2,
+                          height: height * 0.1,
                           decoration: BoxDecoration(
                             border: Border(
-                              bottom: BorderSide(color: Colors.yellow, width: width*0.01),
-                              right: BorderSide(color: Colors.yellow, width: width*0.01),
+                              bottom: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
+                              right: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
                             ),
                             borderRadius: BorderRadius.only(
                               bottomRight: Radius.circular(12),
@@ -174,12 +189,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         bottom: 0,
                         left: 0,
                         child: Container(
-                          width: width*0.2,
-                          height: height*0.1,
+                          width: width * 0.2,
+                          height: height * 0.1,
                           decoration: BoxDecoration(
                             border: Border(
-                              bottom: BorderSide(color: Colors.yellow, width: width*0.01),
-                              left: BorderSide(color: Colors.yellow, width: width*0.01),
+                              bottom: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
+                              left: BorderSide(
+                                color: Colors.yellow,
+                                width: width * 0.01,
+                              ),
                             ),
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(12),
@@ -187,9 +208,6 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                           ),
                         ),
                       ),
-
-
-
                     ],
                   ),
                 ),
@@ -204,13 +222,25 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                       builder: (context, value, child) {
                         switch (value.torchState) {
                           case TorchState.off:
-                            return const Icon(Icons.flash_off, color: Colors.grey);
+                            return const Icon(
+                              Icons.flash_off,
+                              color: Colors.grey,
+                            );
                           case TorchState.on:
-                            return const Icon(Icons.flash_on, color: Colors.yellow);
+                            return const Icon(
+                              Icons.flash_on,
+                              color: Colors.yellow,
+                            );
                           case TorchState.auto:
-                            return const Icon(Icons.flash_auto, color: Colors.blue);
+                            return const Icon(
+                              Icons.flash_auto,
+                              color: Colors.blue,
+                            );
                           case TorchState.unavailable:
-                            return const Icon(Icons.flash_off, color: Colors.grey);
+                            return const Icon(
+                              Icons.flash_off,
+                              color: Colors.grey,
+                            );
                         }
                       },
                     ),
@@ -265,12 +295,10 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                     ),
                     filled: true,
                     fillColor: colorScheme.surface,
-                    contentPadding:
-                    const EdgeInsets.symmetric(vertical: 18),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 18),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide:
-                      BorderSide(color: colorScheme.outline),
+                      borderSide: BorderSide(color: colorScheme.outline),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -281,30 +309,33 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                     ),
                   ),
                 ),
-                SizedBox(height: height*0.04),
+                SizedBox(height: height * 0.04),
                 SizedBox(
                   width: double.infinity,
-                  height: height*0.07,
-                  child: ElevatedButton(onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => CreateEventScreen()),);
-                  },
+                  height: height * 0.07,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CreateEventScreen(),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorScheme.primary,
                       foregroundColor: colorScheme.onPrimary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      textStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      )
+                      textStyle: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     child: Text(
                       "Join Now",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                ),)
+                  ),
+                ),
               ],
             ),
           ),

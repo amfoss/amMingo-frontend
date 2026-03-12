@@ -1,4 +1,4 @@
-import 'package:amingo/main.dart';
+import 'package:amingo/screens/join_event.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
@@ -118,7 +118,9 @@ class CreateUsername extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => JoinEventScreen(),
+                      ),
                     );
                   },
                   child: Text(

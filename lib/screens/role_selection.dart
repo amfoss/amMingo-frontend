@@ -21,10 +21,7 @@ class Roleselection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset(
-              'assets/images/amMingo.png',
-              height: height * 0.07,
-            ),
+            Image.asset('assets/images/amMingo.png', height: height * 0.07),
             SizedBox(width: width * 0.01),
             Text(
               "Amingo",
@@ -42,7 +39,6 @@ class Roleselection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-
               SizedBox(height: height * 0.1),
 
               // Heading
@@ -72,14 +68,14 @@ class Roleselection extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: height * 0.06),
+              SizedBox(height: height * 0.08),
 
               // PLAYER CARD
               RoleCard(
                 icon: Icons.dashboard,
                 title: "Join as Player",
                 description:
-                "Enter a code and start winning big in live games.",
+                    "Enter a code and start winning big in live games.",
                 onTap: () {
                   Navigator.push(
                     context,
@@ -90,14 +86,12 @@ class Roleselection extends StatelessWidget {
                 },
               ),
 
-              SizedBox(height: height * 0.05),
-
+              SizedBox(height: height * 0.04),
               // HOST CARD
               RoleCard(
                 icon: Icons.rocket,
                 title: "Host an Event",
-                description:
-                "Create rooms, manage players, and lead the show.",
+                description: "Create rooms, manage players, and lead the show.",
                 onTap: () {
                   Navigator.push(
                     context,
@@ -115,7 +109,7 @@ class Roleselection extends StatelessWidget {
   }
 }
 
-// Role Card custom widget
+// Role Card custom Widget
 class RoleCard extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -132,7 +126,6 @@ class RoleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final width = MediaQuery.of(context).size.width;
@@ -146,18 +139,16 @@ class RoleCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
 
         decoration: BoxDecoration(
+          border: Border(
+            left: BorderSide(color: colorScheme.primary, width: width * 0.013),
+          ),
           color: colorScheme.outline,
           borderRadius: BorderRadius.circular(20),
         ),
 
         child: Row(
           children: [
-
-            Icon(
-              icon,
-              color: colorScheme.primary,
-              size: 40,
-            ),
+            Icon(icon, color: colorScheme.primary, size: 40),
 
             SizedBox(width: width * 0.04),
 
@@ -167,7 +158,6 @@ class RoleCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: [
-
                   Text(
                     title,
                     style: textTheme.titleLarge?.copyWith(

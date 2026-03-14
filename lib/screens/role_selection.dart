@@ -7,6 +7,7 @@ class Roleselection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -20,47 +21,51 @@ class Roleselection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/amMingo.png', height: height * 0.07),
-            SizedBox(width: width * .01),
+            Image.asset(
+              'assets/images/amMingo.png',
+              height: height * 0.07,
+            ),
+            SizedBox(width: width * 0.01),
             Text(
               "Amingo",
-              style: TextStyle(
+              style: textTheme.titleLarge?.copyWith(
                 color: colorScheme.onSurface,
-                fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
       ),
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
+
               SizedBox(height: height * 0.1),
 
-              /// Heading
+              // Heading
               Center(
                 child: Column(
                   children: [
                     Text(
                       "Welcome to Amingo",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: textTheme.headlineLarge?.copyWith(
                         color: colorScheme.onSurface,
                         fontWeight: FontWeight.bold,
-                        fontSize: 36,
                       ),
                     ),
+
                     SizedBox(height: height * 0.005),
+
                     Text(
                       "Choose your role to get started.",
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: textTheme.titleMedium?.copyWith(
                         color: colorScheme.primary,
                         fontWeight: FontWeight.bold,
-                        fontSize: 18,
                       ),
                     ),
                   ],
@@ -69,8 +74,12 @@ class Roleselection extends StatelessWidget {
 
               SizedBox(height: height * 0.06),
 
-              /// PLAYER CARD
-              GestureDetector(
+              // PLAYER CARD
+              RoleCard(
+                icon: Icons.dashboard,
+                title: "Join as Player",
+                description:
+                "Enter a code and start winning big in live games.",
                 onTap: () {
                   Navigator.push(
                     context,
@@ -79,56 +88,16 @@ class Roleselection extends StatelessWidget {
                     ),
                   );
                 },
-                child: Container(
-                  width: width * 0.9,
-                  height: height * 0.2,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: colorScheme.outline,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border(),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.dashboard,
-                        color: colorScheme.primary,
-                        size: 40,
-                      ),
-                      SizedBox(width: width * 0.04),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Join as Player",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: colorScheme.onSurface,
-                              ),
-                            ),
-                            SizedBox(height: height * 0.01),
-                            Text(
-                              "Enter a code and start winning big in live games.",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
 
               SizedBox(height: height * 0.05),
 
-              /// HOST CARD
-              GestureDetector(
+              // HOST CARD
+              RoleCard(
+                icon: Icons.rocket,
+                title: "Host an Event",
+                description:
+                "Create rooms, manage players, and lead the show.",
                 onTap: () {
                   Navigator.push(
                     context,
@@ -137,49 +106,88 @@ class Roleselection extends StatelessWidget {
                     ),
                   );
                 },
-                child: Container(
-                  width: width * 0.9,
-                  height: height * 0.2,
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: colorScheme.outline,
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border(),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.rocket, color: colorScheme.primary, size: 40),
-                      SizedBox(width: width * 0.04),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Host an Event",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: colorScheme.onSurface,
-                              ),
-                            ),
-                            SizedBox(height: height * 0.01),
-                            Text(
-                              "Create rooms, manage players, and lead the show.",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: colorScheme.onSurfaceVariant,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// Role Card custom widget
+class RoleCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String description;
+  final VoidCallback onTap;
+
+  const RoleCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.description,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+    final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width * 0.9,
+        height: height * 0.2,
+        padding: const EdgeInsets.all(20),
+
+        decoration: BoxDecoration(
+          color: colorScheme.outline,
+          borderRadius: BorderRadius.circular(20),
+        ),
+
+        child: Row(
+          children: [
+
+            Icon(
+              icon,
+              color: colorScheme.primary,
+              size: 40,
+            ),
+
+            SizedBox(width: width * 0.04),
+
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+
+                  Text(
+                    title,
+                    style: textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: colorScheme.onSurface,
+                    ),
+                  ),
+
+                  SizedBox(height: height * 0.01),
+
+                  Text(
+                    description,
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

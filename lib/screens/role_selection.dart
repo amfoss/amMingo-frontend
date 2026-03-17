@@ -1,4 +1,5 @@
 import 'package:amingo/screens/enterusername.dart';
+import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
 
 class Roleselection extends StatelessWidget {
@@ -80,7 +81,8 @@ class Roleselection extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const CreateUsername(),
+                      builder: (context) =>
+                          const FriendVerification(letter: 'B'),
                     ),
                   );
                 },
@@ -142,7 +144,7 @@ class RoleCard extends StatelessWidget {
           border: Border(
             left: BorderSide(color: colorScheme.primary, width: width * 0.013),
           ),
-          color: colorScheme.outline,
+          color: colorScheme.surfaceContainer,
           borderRadius: BorderRadius.circular(20),
         ),
 

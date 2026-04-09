@@ -46,7 +46,6 @@ class _FriendVerificationState extends State<FriendVerification> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
@@ -98,7 +97,7 @@ class _FriendVerificationState extends State<FriendVerification> {
                       height: height * 0.25,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withValues(alpha: 0.3),
                       ),
                     ),
                     Positioned.fill(
@@ -109,7 +108,7 @@ class _FriendVerificationState extends State<FriendVerification> {
                             Container(
                               padding: const EdgeInsets.all(12),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.8),
+                                color: Colors.white.withValues(alpha: 0.8),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
@@ -166,7 +165,7 @@ class _FriendVerificationState extends State<FriendVerification> {
                 ),
                 hintText: "Enter friend's name",
                 hintStyle: TextStyle(
-                  color: colorScheme.onSurface.withOpacity(0.5),
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
                 filled: true,
                 fillColor: colorScheme.surfaceContainerHighest,
@@ -210,7 +209,7 @@ class _FriendVerificationState extends State<FriendVerification> {
               decoration: InputDecoration(
                 hintText: "e.g. 123",
                 hintStyle: TextStyle(
-                  color: colorScheme.onSurface.withOpacity(0.5),
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
                 filled: true,
                 fillColor: colorScheme.surfaceContainerHighest,
@@ -295,7 +294,7 @@ class _FriendVerificationState extends State<FriendVerification> {
               decoration: InputDecoration(
                 hintText: "Share a quick vibe check or note about your friend",
                 hintStyle: TextStyle(
-                  color: colorScheme.onSurface.withOpacity(0.5),
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
                 filled: true,
                 fillColor: colorScheme.surfaceContainerHighest,

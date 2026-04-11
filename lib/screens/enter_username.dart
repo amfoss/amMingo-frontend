@@ -1,4 +1,5 @@
 import 'package:amingo/screens/join_event.dart';
+import 'package:amingo/screens/role_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/theme_provider.dart';
@@ -118,9 +119,13 @@ class CreateUsername extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
+<<<<<<< HEAD:lib/screens/enter_username.dart
                       MaterialPageRoute(
                         builder: (context) => JoinEventScreen(),
                       ),
+=======
+                      MaterialPageRoute(builder: (context) => Roleselection()),
+>>>>>>> 919659f433f7d125577d6e25d0bea96b48c83bc0:lib/screens/enterusername.dart
                     );
                   },
                   child: Text(

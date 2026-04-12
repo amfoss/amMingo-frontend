@@ -62,7 +62,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text("🎉 Successfully joined the event!"),
+        content: const Text("Successfully joined the event!"),
         backgroundColor: Colors.green.shade400,
         duration: const Duration(seconds: 3),
       ),

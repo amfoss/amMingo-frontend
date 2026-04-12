@@ -48,10 +48,8 @@
         </activity>
 
         <meta-data
-    android:name="flutterEmbedding"
-    android:value="2" />
-</application/
-<uses-permission android:name="android.permission.CAMERA"/>
-<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
 
 </manifest>

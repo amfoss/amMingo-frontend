@@ -89,7 +89,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
           child: Container(
-            color: colorScheme.outline.withOpacity(0.2),
+            color: colorScheme.outline.withValues(alpha: 0.2),
             height: 1,
           ),
         ),
@@ -107,13 +107,13 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        colorScheme.primary.withOpacity(0.1),
-                        colorScheme.primary.withOpacity(0.05),
+                        colorScheme.primary.withValues(alpha: 0.1),
+                        colorScheme.primary.withValues(alpha: 0.05),
                       ],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: colorScheme.primary.withOpacity(0.2),
+                      color: colorScheme.primary.withValues(alpha: 0.2),
                       width: 1,
                     ),
                   ),
@@ -122,7 +122,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                       Container(
                         padding: EdgeInsets.all(12),
                         decoration: BoxDecoration(
-                          color: colorScheme.primary.withOpacity(0.15),
+                          color: colorScheme.primary.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Icon(
@@ -178,7 +178,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(
-                      color: colorScheme.outline.withOpacity(0.3),
+                      color: colorScheme.outline.withValues(alpha: 0.3),
                       width: 1.5,
                     ),
                   ),
@@ -356,7 +356,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: colorScheme.primary.withOpacity(0.1),
+                              color: colorScheme.primary.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: IconButton(
@@ -405,7 +405,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                     Expanded(
                       child: Container(
                         height: 1,
-                        color: colorScheme.outline.withOpacity(0.3),
+                        color: colorScheme.outline.withValues(alpha: 0.3),
                       ),
                     ),
                     Padding(
@@ -423,7 +423,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                     Expanded(
                       child: Container(
                         height: 1,
-                        color: colorScheme.outline.withOpacity(0.3),
+                        color: colorScheme.outline.withValues(alpha: 0.3),
                       ),
                     ),
                   ],
@@ -446,9 +446,9 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                 Container(
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: colorScheme.primary.withOpacity(0.05),
+                    color: colorScheme.primary.withValues(alpha: 0.05),
                     border: Border.all(
-                      color: colorScheme.outline.withOpacity(0.2),
+                      color: colorScheme.outline.withValues(alpha: 0.2),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(14),
@@ -475,8 +475,8 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                         decoration: InputDecoration(
                           hintText: "000000",
                           hintStyle: TextStyle(
-                            color: colorScheme.onSurfaceVariant.withOpacity(
-                              0.5,
+                            color: colorScheme.onSurfaceVariant.withValues(
+                              alpha: 0.5,
                             ),
                             letterSpacing: 8,
                             fontSize: 28,
@@ -486,13 +486,13 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
-                              color: colorScheme.outline.withOpacity(0.2),
+                              color: colorScheme.outline.withValues(alpha: 0.2),
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide(
-                              color: colorScheme.outline.withOpacity(0.2),
+                              color: colorScheme.outline.withValues(alpha: 0.2),
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(

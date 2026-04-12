@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:amingo/screens/enterusername.dart';
+import 'package:amingo/screens/enter_username.dart';
 
 class LoginScreen extends StatelessWidget {
   final String email;

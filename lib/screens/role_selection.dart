@@ -1,4 +1,4 @@
-import 'package:amingo/screens/enterusername.dart';
+import 'package:amingo/screens/enter_username.dart';
 import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
 

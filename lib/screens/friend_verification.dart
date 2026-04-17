@@ -46,7 +46,6 @@ class _FriendVerificationState extends State<FriendVerification> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
     final textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
@@ -55,92 +54,78 @@ class _FriendVerificationState extends State<FriendVerification> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: colorScheme.surface,
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(height: height * 0.01),
-            Text(
-              "Verify Friend",
-              style: TextStyle(
-                color: colorScheme.onSurface,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "Tile ${widget.letter} verification",
-              style: textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: colorScheme.primary,
-              ),
-            ),
-          ],
+        title: Text(
+          "Verify Friend",
+          style: TextStyle(
+            color: colorScheme.onSurface,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
       body: SafeArea(
         child: ListView(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           children: [
-            // IMAGE
-            Material(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
+            // IMAGE SECTION
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
               ),
               child: InkWell(
                 onTap: _openCamera,
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
-                ),
+                borderRadius: BorderRadius.circular(16),
                 child: Stack(
                   children: [
                     Container(
                       width: double.infinity,
-                      height: height * 0.22,
+                      height: height * 0.25,
                       decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        ),
-                        border: Border.all(color: colorScheme.outline),
+                        borderRadius: BorderRadius.circular(16),
                         image: DecorationImage(
                           image: image != null
                               ? FileImage(image!)
                               : const AssetImage('assets/images/default2.png')
-                                    as ImageProvider,
+                          as ImageProvider,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-
-                    // DARK OVERLAY
                     Container(
                       width: double.infinity,
-                      height: height * 0.22,
+                      height: height * 0.25,
                       decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        ),
-                        color: Colors.black.withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(16),
+                        color: Colors.black.withValues(alpha: 0.3),
                       ),
                     ),
-
-                    // CAMERA ICON
                     Positioned.fill(
                       child: Center(
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withValues(alpha: 0.6),
-                            shape: BoxShape.circle,
-                          ),
-                          child: const Icon(
-                            Icons.camera_alt,
-                            color: Colors.white,
-                            size: 30,
-                          ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.8),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.camera_alt,
+                                color: colorScheme.primary,
+                                size: 32,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              "Tap to take photo",
+                              style: textTheme.bodyMedium?.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -148,204 +133,138 @@ class _FriendVerificationState extends State<FriendVerification> {
                 ),
               ),
             ),
-            // PROOF OF MEETING
-            Container(
-              width: double.infinity,
-              height: height * 0.14,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 17),
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainer,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Proof of Meeting",
-                    style: textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: colorScheme.onSurface,
-                    ),
-                  ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          "Snap a quick selfie with your friend",
-                          style: textTheme.bodyLarge?.copyWith(
-                            color: colorScheme.tertiary,
-                          ),
-                        ),
-                      ),
+            const SizedBox(height: 24),
 
-                      //OPEN CAMERA CONTAINER
-                      Material(
-                        color: colorScheme.primary,
-                        borderRadius: BorderRadius.circular(12),
-                        child: InkWell(
-                          onTap: _openCamera,
-                          borderRadius: BorderRadius.circular(12),
-                          splashColor: colorScheme.surface.withValues(
-                            alpha: 0.2,
-                          ),
-                          child: Container(
-                            width: width * 0.3,
-                            height: height * 0.058,
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Open Camera",
-                              style: textTheme.titleMedium?.copyWith(
-                                color: colorScheme.surface,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: height * 0.02),
-
-            // FRIEND NAME
+            // FRIEND NAME SECTION
             Text(
               "Friend's Name",
-              style: textTheme.bodyLarge?.copyWith(
-                color: colorScheme.onSurface,
+              style: textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
+                color: colorScheme.onSurface,
               ),
             ),
-
-            SizedBox(height: height * 0.004),
-
-            Container(
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainer,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: colorScheme.outline, width: 1.2),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    child: Text(
-                      "${widget.letter} |",
-                      style: textTheme.bodyLarge?.copyWith(
-                        color: colorScheme.primary,
-                        fontWeight: FontWeight.bold,
-                      ),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: nameController,
+              cursorColor: colorScheme.primary,
+              style: TextStyle(color: colorScheme.onSurface),
+              decoration: InputDecoration(
+                prefixIcon: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 14,
+                  ),
+                  child: Text(
+                    "${widget.letter} |",
+                    style: textTheme.bodyLarge?.copyWith(
+                      color: colorScheme.primary,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Expanded(
-                    child: TextField(
-                      controller: nameController,
-                      cursorColor: colorScheme.primary,
-                      style: TextStyle(color: colorScheme.onSurface),
-                      decoration: InputDecoration(
-                        hintText: "Complete the name",
-                        hintStyle: TextStyle(
-                          color: colorScheme.onSurface.withValues(alpha: 0.5),
-                        ),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
+                hintText: "Enter friend's name",
+                hintStyle: TextStyle(
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
+                ),
+                filled: true,
+                fillColor: colorScheme.surfaceContainerHighest,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.primary, width: 2),
+                ),
               ),
             ),
-
-            SizedBox(height: height * 0.003),
-
+            const SizedBox(height: 4),
             Text(
               "Helping you complete the '${widget.letter}' tile on your Bingoboard",
               style: textTheme.bodySmall?.copyWith(color: colorScheme.tertiary),
             ),
 
-            SizedBox(height: height * 0.02),
+            const SizedBox(height: 24),
 
-            // FRIEND CODE
+            // FRIEND CODE SECTION
             Text(
               "Friend's Code",
-              style: textTheme.bodyLarge?.copyWith(
-                color: colorScheme.onSurface,
+              style: textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
+                color: colorScheme.onSurface,
               ),
             ),
-
-            SizedBox(height: height * 0.004),
-
-            Container(
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainer,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: colorScheme.outline),
-              ),
-              child: TextField(
-                controller: codeController,
-                cursorColor: colorScheme.primary,
-                style: TextStyle(color: colorScheme.onSurface),
-                decoration: InputDecoration(
-                  hintText: "e.g 123",
-                  border: InputBorder.none,
-                  hintStyle: TextStyle(
-                    color: colorScheme.onSurface.withValues(alpha: 0.5),
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 13,
-                  ),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: codeController,
+              cursorColor: colorScheme.primary,
+              style: TextStyle(color: colorScheme.onSurface),
+              keyboardType: TextInputType.number,
+              maxLength: 3,
+              decoration: InputDecoration(
+                hintText: "e.g. 123",
+                hintStyle: TextStyle(
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
                 ),
+                filled: true,
+                fillColor: colorScheme.surfaceContainerHighest,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.primary, width: 2),
+                ),
+                counterText: "",
               ),
             ),
-
-            SizedBox(height: height * 0.003),
+            const SizedBox(height: 8),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
                   child: Text(
-                    "Ask your friend's for their 3 digit code",
+                    "Ask your friend for their 3-digit code to verify.",
                     style: textTheme.bodySmall?.copyWith(
-                      color: colorScheme.tertiary,
+                      color: colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ),
-
-                SizedBox(width: width * 0.03),
-
-                // YOUR CODE BOX
+                const SizedBox(width: 12),
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
+                    horizontal: 12,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: Color(0xFF352804),
-                    borderRadius: BorderRadius.circular(20),
+                    color: colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: colorScheme.outline),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        "YOUR CODE: ",
+                        "Your Code: ",
                         style: textTheme.bodySmall?.copyWith(
-                          color: colorScheme.primary,
+                          color: colorScheme.onPrimaryContainer,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         "867",
-                        style: textTheme.labelSmall?.copyWith(
-                          color: Colors.white,
+                        style: textTheme.bodySmall?.copyWith(
+                          color: colorScheme.onPrimaryContainer,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -355,44 +274,46 @@ class _FriendVerificationState extends State<FriendVerification> {
               ],
             ),
 
-            SizedBox(height: height * 0.02),
+            const SizedBox(height: 24),
 
-            // ABOUT FRIEND
+            // ABOUT FRIEND SECTION
             Text(
               "About your friend",
-              style: textTheme.bodyLarge?.copyWith(
-                color: colorScheme.onSurface,
+              style: textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.bold,
+                color: colorScheme.onSurface,
               ),
             ),
-
-            SizedBox(height: height * 0.004),
-
-            Container(
-              height: height * 0.2,
-              decoration: BoxDecoration(
-                color: colorScheme.surfaceContainer,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: colorScheme.outline),
-              ),
-              child: TextField(
-                controller: aboutController,
-                maxLength: 20,
-                cursorColor: colorScheme.primary,
-                style: TextStyle(color: colorScheme.onSurface),
-                decoration: InputDecoration(
-                  hintText: "Quick vibe check",
-                  border: InputBorder.none,
-                  hintStyle: TextStyle(
-                    color: colorScheme.onSurface.withValues(alpha: 0.5),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 13,
-                  ),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: aboutController,
+              maxLength: 100,
+              maxLines: 3,
+              cursorColor: colorScheme.primary,
+              style: TextStyle(color: colorScheme.onSurface),
+              decoration: InputDecoration(
+                hintText: "Share a quick vibe check or note about your friend",
+                hintStyle: TextStyle(
+                  color: colorScheme.onSurface.withValues(alpha: 0.5),
+                ),
+                filled: true,
+                fillColor: colorScheme.surfaceContainerHighest,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.outline),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colorScheme.primary, width: 2),
                 ),
               ),
             ),
+
+            const SizedBox(height: 32), // Space before bottom button
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -129,7 +130,12 @@ class PlayerEventDetails extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                print("Play clicked"); //NAVIGATION TO BINGO BOARD
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const FriendVerification(letter: 'A'),
+                  ),
+                ); //NAVIGATION TO BINGO BOARD
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: colorScheme.primary,

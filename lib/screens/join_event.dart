@@ -71,9 +71,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
 
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) =>const PlayerEventDetails(),
-      ),
+      MaterialPageRoute(builder: (context) => const PlayerEventDetails()),
     );
   }
 

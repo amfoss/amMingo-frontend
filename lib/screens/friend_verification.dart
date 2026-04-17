@@ -87,7 +87,7 @@ class _FriendVerificationState extends State<FriendVerification> {
                           image: image != null
                               ? FileImage(image!)
                               : const AssetImage('assets/images/default2.png')
-                          as ImageProvider,
+                                    as ImageProvider,
                           fit: BoxFit.cover,
                         ),
                       ),

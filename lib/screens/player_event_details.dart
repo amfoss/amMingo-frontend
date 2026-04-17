@@ -1,7 +1,4 @@
-import 'dart:ui';
-
 import 'package:amingo/screens/friend_verification.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PlayerEventDetails extends StatelessWidget {
@@ -56,11 +53,10 @@ class PlayerEventDetails extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
-
                 // crowd gathering image
                 Center(
-                  child: Container(
-                    width: width * 0.9,
+                  child: SizedBox(
+                    width: double.infinity,
                     height: height * 0.22,
                     child: Stack(
                       children: [

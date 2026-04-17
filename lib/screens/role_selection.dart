@@ -81,7 +81,7 @@ class Roleselection extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const JoinEventScreen(),
+                      builder: (context) => const JoinEventScreen(),
                     ),
                   );
                 },
@@ -97,7 +97,7 @@ class Roleselection extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context)=>const CreateEventScreen()
+                      builder: (context) => const CreateEventScreen(),
                     ),
                   );
                 },

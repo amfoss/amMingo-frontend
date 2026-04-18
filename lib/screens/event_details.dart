@@ -1,8 +1,12 @@
 import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
 
-class PlayerEventDetails extends StatelessWidget {
-  const PlayerEventDetails({super.key});
+class EventDetails extends StatelessWidget {
+  final String eventName;
+  final String hostName;
+  final String hostPfp;
+  final String joinOrStart;
+  const EventDetails({super.key, required this.eventName, required this.hostName, required this.hostPfp, required this.joinOrStart});
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +100,75 @@ class PlayerEventDetails extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: height*0.03),
+
+                // EVENT TITLE & HOST DETAILS
+
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Event Title
+                    Text(
+                      eventName,
+                      style: textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: colorScheme.onSurface,
+                      ),
+                    ),
+
+                    SizedBox(height: height*0.01),
+
+                    //Host Details
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: colorScheme.primary,
+                              width: 2,
+                            ),
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              hostPfp, // hostProfile img
+                              width: 45,
+                              height: 45,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Icon(Icons.person, size: 45),
+                            ),
+                          ),
+                        ),
+
+                        SizedBox(width: width*0.025),
+
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "HOSTED BY",
+                              style: textTheme.bodySmall?.copyWith(
+                                color: colorScheme.primary,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                            Text(
+                              hostName,   // host name
+                              style: textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: colorScheme.onSurface,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: height*0.03),
 
                 Column(
                   children: details.map((item) {
@@ -110,7 +182,7 @@ class PlayerEventDetails extends StatelessWidget {
                     );
                   }).toList(),
                 ),
-                const SizedBox(height: 30),
+                SizedBox(height: height*0.1),
               ],
             ),
           ),
@@ -129,9 +201,9 @@ class PlayerEventDetails extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const FriendVerification(letter: 'A'),
+                    builder: (context) => const FriendVerification(letter: 'A'), //NAVIGATION TO BINGO BOARD
                   ),
-                ); //NAVIGATION TO BINGO BOARD
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: colorScheme.primary,
@@ -140,7 +212,7 @@ class PlayerEventDetails extends StatelessWidget {
                 ),
               ),
               child: Text(
-                "PLAY",
+                joinOrStart, //start for host view and play for player view
                 style: textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: colorScheme.surface,

@@ -1,4 +1,4 @@
-import 'package:amingo/screens/player_event_details.dart';
+import 'package:amingo/screens/event_details.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -71,7 +71,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
 
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const PlayerEventDetails()),
+      MaterialPageRoute(builder: (context) => const EventDetails( eventName: 'amFOSS Praveshan 2026', hostName: 'amFOSS', hostPfp: 'https://i.pravatar.cc/150?img=6', joinOrStart: 'PLAY')),
     );
   }
 

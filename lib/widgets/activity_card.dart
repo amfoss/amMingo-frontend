@@ -9,14 +9,12 @@ Widget activityCard(BuildContext context) {
     margin: EdgeInsets.symmetric(vertical: 6),
     decoration: BoxDecoration(
       color: colorScheme.surface,
-      border: Border.all(color: colorScheme.outline, width: width*0.001),
+      border: Border.all(color: colorScheme.outline, width: width * 0.001),
       borderRadius: BorderRadius.circular(14),
     ),
     child: Row(
       children: [
-         CircleAvatar(
-          radius: 22,
-        ),
+        CircleAvatar(radius: 22),
         SizedBox(width: 12),
         Expanded(
           child: Column(
@@ -29,10 +27,7 @@ Widget activityCard(BuildContext context) {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
-                "Completed Tile A",
-                style: TextStyle(color: Colors.grey),
-              ),
+              Text("Completed Tile A", style: TextStyle(color: Colors.grey)),
             ],
           ),
         ),
@@ -42,22 +37,19 @@ Widget activityCard(BuildContext context) {
               "1456",
               style: TextStyle(
                 color: colorScheme.primary,
-                fontSize: width*0.04,
+                fontSize: width * 0.04,
               ),
             ),
             Text(
               "PTS",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: width*0.02,
-              ),
+              style: TextStyle(color: Colors.grey, fontSize: width * 0.02),
             ),
           ],
         ),
-        IconButton(onPressed: () {}, icon: Icon(
-          CupertinoIcons.person_badge_minus,
-          color: Colors.red,
-        ))
+        IconButton(
+          onPressed: () {},
+          icon: Icon(CupertinoIcons.person_badge_minus, color: Colors.red),
+        ),
       ],
     ),
   );

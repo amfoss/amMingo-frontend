@@ -2,7 +2,7 @@ import 'package:amingo/screens/create_event.dart';
 import 'package:amingo/screens/enter_username.dart';
 import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
-
+import 'package:amingo/screens/join_event.dart';
 class Roleselection extends StatelessWidget {
   const Roleselection({super.key});
 
@@ -83,7 +83,7 @@ class Roleselection extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          const FriendVerification(letter: 'B'),
+                          const JoinEventScreen(),
                     ),
                   );
                 },

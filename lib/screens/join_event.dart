@@ -1,8 +1,9 @@
 import 'package:amingo/screens/create_event.dart';
+import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:amingo/screens/role_selection.dart';
 class JoinEventScreen extends StatefulWidget {
   const JoinEventScreen({super.key});
   @override
@@ -185,7 +186,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const CreateEventScreen(),
+                        builder: (context) => const FriendVerification(letter: 'B'),
                       ),
                     );
                   },

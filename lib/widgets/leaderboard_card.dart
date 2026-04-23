@@ -9,10 +9,7 @@ Widget leaderboardCard(BuildContext context) {
     margin: const EdgeInsets.symmetric(vertical: 6),
     decoration: BoxDecoration(
       color: colorScheme.surface,
-      border: Border.all(
-        color: colorScheme.outline,
-        width: width * 0.001,
-      ),
+      border: Border.all(color: colorScheme.outline, width: width * 0.001),
       borderRadius: BorderRadius.circular(14),
     ),
     child: Row(
@@ -30,10 +27,7 @@ Widget leaderboardCard(BuildContext context) {
           ),
         ),
         const SizedBox(width: 10),
-        const CircleAvatar(
-          radius: 22,
-          backgroundColor: Colors.grey,
-        ),
+        const CircleAvatar(radius: 22, backgroundColor: Colors.grey),
         const SizedBox(width: 12),
         Expanded(
           child: Text(

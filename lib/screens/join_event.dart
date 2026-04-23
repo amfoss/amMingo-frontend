@@ -1,12 +1,11 @@
-import 'package:amingo/screens/create_event.dart';
 import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:amingo/screens/role_selection.dart';
 
 class JoinEventScreen extends StatefulWidget {
   const JoinEventScreen({super.key});
+
   @override
   State<JoinEventScreen> createState() => _JoinEventScreenState();
 }
@@ -43,10 +42,13 @@ class _JoinEventScreenState extends State<JoinEventScreen>
   Future<void> handleScan(String value) async {
     final messenger = ScaffoldMessenger.of(context);
     final uri = Uri.tryParse(value);
+
     if (uri != null && await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {
-      messenger.showSnackBar(const SnackBar(content: Text("Invalid QR Code")));
+      messenger.showSnackBar(
+        const SnackBar(content: Text("Invalid QR Code")),
+      );
     }
   }
 
@@ -86,17 +88,22 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                       controller: cameraController,
                       onDetect: (capture) async {
                         if (isScanned) return;
+
                         final barcodes = capture.barcodes;
                         if (barcodes.isEmpty ||
                             barcodes.first.rawValue == null) {
                           return;
                         }
+
                         isScanned = true;
                         final code = barcodes.first.rawValue!;
+
                         await cameraController.stop();
                         await handleScan(code);
+
                         await Future.delayed(const Duration(seconds: 2));
                         isScanned = false;
+
                         await cameraController.start();
                       },
                     ),
@@ -130,24 +137,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
 
               SizedBox(height: height * 0.01),
 
-              ValueListenableBuilder<TorchState>(
-                valueListenable: cameraController.torchState,
-                builder: (context, state, child) {
-                  IconData icon;
-                  Color color;
-                  if (state == TorchState.on) {
-                    icon = Icons.flash_on;
-                    color = Colors.yellow;
-                  } else {
-                    icon = Icons.flash_off;
-                    color = Colors.grey;
-                  }
-                  return IconButton(
-                    icon: Icon(icon, color: color),
-                    onPressed: () {
-                      cameraController.toggleTorch();
-                    },
-                  );
+              IconButton(
+                icon: Icon(
+                  cameraController.torchEnabled
+                      ? Icons.flash_on
+                      : Icons.flash_off,
+                  color: cameraController.torchEnabled
+                      ? Colors.yellow
+                      : Colors.grey,
+                ),
+                onPressed: () {
+                  cameraController.toggleTorch();
+                  setState(() {}); // refresh icon
                 },
               ),
 
@@ -188,7 +189,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            const FriendVerification(letter: 'B'),
+                        const FriendVerification(letter: 'B'),
                       ),
                     );
                   },

@@ -46,9 +46,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
     if (uri != null && await canLaunchUrl(uri)) {
       await launchUrl(uri);
     } else {
-      messenger.showSnackBar(
-        const SnackBar(content: Text("Invalid QR Code")),
-      );
+      messenger.showSnackBar(const SnackBar(content: Text("Invalid QR Code")));
     }
   }
 
@@ -189,7 +187,7 @@ class _JoinEventScreenState extends State<JoinEventScreen>
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                        const FriendVerification(letter: 'B'),
+                            const FriendVerification(letter: 'B'),
                       ),
                     );
                   },

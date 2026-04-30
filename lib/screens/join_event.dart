@@ -1,3 +1,4 @@
+import 'package:amingo/screens/event_details.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -65,6 +66,18 @@ class _JoinEventScreenState extends State<JoinEventScreen>
         content: const Text("Successfully joined the event!"),
         backgroundColor: Colors.green.shade400,
         duration: const Duration(seconds: 3),
+      ),
+    );
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const EventDetails(
+          eventName: 'amFOSS Praveshan 2026',
+          hostName: 'amFOSS',
+          hostPfp: 'https://i.pravatar.cc/150?img=6',
+          joinOrStart: 'PLAY',
+        ),
       ),
     );
   }

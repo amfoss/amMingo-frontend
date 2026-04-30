@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:amingo/screens/preview_screen.dart';
-import 'package:amingo/screens/role_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -327,10 +326,13 @@ class _FriendVerificationState extends State<FriendVerification> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Roleselection()),
-                );
+                if (areAllFieldsFilled()) {
+                  Navigator.pop(context, true);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text("Fill all fields first")),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: colorScheme.primary,
@@ -350,5 +352,12 @@ class _FriendVerificationState extends State<FriendVerification> {
         ),
       ),
     );
+  }
+
+  bool areAllFieldsFilled() {
+    return nameController.text.trim().isNotEmpty &&
+        codeController.text.trim().length == 3 &&
+        aboutController.text.trim().isNotEmpty &&
+        image != null;
   }
 }

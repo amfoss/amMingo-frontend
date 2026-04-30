@@ -1,3 +1,4 @@
+import 'package:amingo/screens/event_details.dart';
 import 'package:flutter/material.dart';
 
 class CreateEventScreen extends StatefulWidget {
@@ -186,7 +187,26 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                   width: double.infinity,
                   height: height * 0.07,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_eventNameController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text("Event name is required")),
+                        );
+                        return;
+                      }
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EventDetails(
+                            eventName: _eventNameController.text,
+                            hostName: "amFOSS",
+                            hostPfp: "https://i.pravatar.cc/150?img=6",
+                            joinOrStart: "START",
+                          ),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorScheme.primary,
                       foregroundColor: colorScheme.onPrimary,

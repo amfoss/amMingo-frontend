@@ -1,6 +1,5 @@
 import 'package:amingo/providers/theme_provider.dart';
 import 'package:amingo/screens/login_screen.dart';
-import 'package:amingo/screens/event_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';

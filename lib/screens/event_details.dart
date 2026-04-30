@@ -1,12 +1,20 @@
-import 'package:amingo/screens/friend_verification.dart';
 import 'package:flutter/material.dart';
+
+import 'bingo_board.dart';
+import 'game_monitor.dart';
 
 class EventDetails extends StatelessWidget {
   final String eventName;
   final String hostName;
   final String hostPfp;
   final String joinOrStart;
-  const EventDetails({super.key, required this.eventName, required this.hostName, required this.hostPfp, required this.joinOrStart});
+  const EventDetails({
+    super.key,
+    required this.eventName,
+    required this.hostName,
+    required this.hostPfp,
+    required this.joinOrStart,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -100,10 +108,9 @@ class EventDetails extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: height*0.03),
+                SizedBox(height: height * 0.03),
 
                 // EVENT TITLE & HOST DETAILS
-
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -116,7 +123,7 @@ class EventDetails extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: height*0.01),
+                    SizedBox(height: height * 0.01),
 
                     //Host Details
                     Row(
@@ -142,7 +149,7 @@ class EventDetails extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(width: width*0.025),
+                        SizedBox(width: width * 0.025),
 
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -155,7 +162,7 @@ class EventDetails extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              hostName,   // host name
+                              hostName, // host name
                               style: textTheme.titleMedium?.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: colorScheme.onSurface,
@@ -168,7 +175,7 @@ class EventDetails extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: height*0.03),
+                SizedBox(height: height * 0.03),
 
                 Column(
                   children: details.map((item) {
@@ -182,7 +189,7 @@ class EventDetails extends StatelessWidget {
                     );
                   }).toList(),
                 ),
-                SizedBox(height: height*0.1),
+                SizedBox(height: height * 0.1),
               ],
             ),
           ),
@@ -198,12 +205,23 @@ class EventDetails extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const FriendVerification(letter: 'A'), //NAVIGATION TO BINGO BOARD
-                  ),
-                );
+                if (joinOrStart == 'PLAY') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BingoBoard()),
+                  );
+                } else if (joinOrStart == 'START') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GameMonitorScreen(
+                        eventName: 'HacktoberFest 2026',
+                        time: 120,
+                        maxParticipants: '60',
+                      ),
+                    ),
+                  );
+                }
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: colorScheme.primary,
@@ -212,7 +230,7 @@ class EventDetails extends StatelessWidget {
                 ),
               ),
               child: Text(
-                joinOrStart, //start for host view and play for player view
+                joinOrStart,
                 style: textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: colorScheme.surface,

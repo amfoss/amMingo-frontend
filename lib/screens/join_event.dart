@@ -71,7 +71,14 @@ class _JoinEventScreenState extends State<JoinEventScreen>
 
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const EventDetails( eventName: 'amFOSS Praveshan 2026', hostName: 'amFOSS', hostPfp: 'https://i.pravatar.cc/150?img=6', joinOrStart: 'PLAY')),
+      MaterialPageRoute(
+        builder: (context) => const EventDetails(
+          eventName: 'amFOSS Praveshan 2026',
+          hostName: 'amFOSS',
+          hostPfp: 'https://i.pravatar.cc/150?img=6',
+          joinOrStart: 'PLAY',
+        ),
+      ),
     );
   }
 

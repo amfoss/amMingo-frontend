@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:amingo/screens/game_monitor.dart';
 
 class CreateEventScreen extends StatefulWidget {
   const CreateEventScreen({super.key});
@@ -186,7 +187,31 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                   width: double.infinity,
                   height: height * 0.07,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      final eventName = _eventNameController.text;
+                      final time = int.tryParse(_timeLimitController.text) ?? 0;
+                      final maxParticipants = _participantsController.text;
+                      if (eventName.isEmpty ||
+                          time == 0 ||
+                          maxParticipants.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Please fill all fields properly"),
+                          ),
+                        );
+                        return;
+                      }
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GameMonitorScreen(
+                            eventName: eventName,
+                            time: time,
+                            maxParticipants: maxParticipants,
+                          ),
+                        ),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: colorScheme.primary,
                       foregroundColor: colorScheme.onPrimary,

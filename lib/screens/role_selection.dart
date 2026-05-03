@@ -1,6 +1,6 @@
 import 'package:amingo/screens/create_event.dart';
-import 'package:amingo/screens/join_event.dart';
 import 'package:flutter/material.dart';
+import 'package:amingo/screens/join_event.dart';
 
 class Roleselection extends StatelessWidget {
   const Roleselection({super.key});

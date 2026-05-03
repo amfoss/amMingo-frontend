@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:amingo/widgets/activity_card.dart';
 import 'dart:async';
 
 class GameMonitorScreen extends StatefulWidget {
@@ -68,39 +69,6 @@ class _GameMonitorScreenState extends State<GameMonitorScreen> {
 
   Widget colon() {
     return Text(":", style: TextStyle(fontSize: 22, color: Colors.grey));
-  }
-
-  Widget activityCard(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final width = MediaQuery.of(context).size.width;
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
-      padding: EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: colorScheme.outline, width: width * 0.003),
-        color: colorScheme.surface,
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(radius: 6, backgroundColor: colorScheme.primary),
-          SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              "Player activity update",
-              style: TextStyle(
-                color: colorScheme.onSurface,
-                fontSize: width * 0.035,
-              ),
-            ),
-          ),
-          Text(
-            "now",
-            style: TextStyle(color: Colors.grey, fontSize: width * 0.03),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
